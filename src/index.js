@@ -1,12 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import docType from './reducers/DocType';
+import firstName from './reducers/FirstName';
+import MainApp from './MainApp';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import { combineReducers } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootReducer = combineReducers({docType,firstName});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store = createStore(rootReducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const theme = createMuiTheme({
+	typography: {
+		useNextVariants: true,
+	},
+});
+
+render(
+	<MuiThemeProvider theme={theme}>
+		<Provider store={store}>
+			<MainApp />
+		</Provider>
+	</MuiThemeProvider>,
+	document.getElementById('root')
+);
