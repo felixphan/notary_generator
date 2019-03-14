@@ -12,18 +12,18 @@ const styles = theme => ({
 	}
 });
 
-const FirstNameInput = ({classes, handleChange}) => {
+const LastNameInput = ({classes, handleChange}) => {
 	return (
 		<div>
-			<TextField label='First Name' className = {classes.textField} onChange={handleChange} margin="normal" variant='outlined'>
+			<TextField label='Last Name' className = {classes.textField} onChange={handleChange} margin="normal" variant='outlined'>
 			</TextField>
 		</div>
 	);
 };
 
-FirstNameInput.propTypes = {
+LastNameInput.propTypes = {
 	classes: PropTypes.object.isRequired,
 	handleChange: PropTypes.func
 };
 
-export default withStyles(styles)(FirstNameInput);
+export default withStyles(styles)(LastNameInput);

@@ -34,6 +34,7 @@
         ],
         "no-console": 0,
         "no-unused-vars": 1,
-        "no-undef": 0
+        "no-undef": 0,
+        "no-duplicate-imports":2
     }
 }

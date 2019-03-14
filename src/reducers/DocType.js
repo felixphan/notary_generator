@@ -2,13 +2,10 @@ import {
 	SET_DOC_TYPE
 } from '../actions/types';
 
-export function docType(state = [], action) {
+export function docType(state = 'en', action) {
 	switch (action.type) {
 	case SET_DOC_TYPE:
-		return {
-			...state,
-			docType: action.text
-		};
+		return action.text;
 	default:
 		return state;
 	}

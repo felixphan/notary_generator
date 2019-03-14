@@ -6,6 +6,7 @@ import ContactInfoPaper from '../components/ContactInfoPaper';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		firstName: state.firstName,
+		lastName: state.lastName
 	};
 };
 
